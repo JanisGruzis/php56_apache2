@@ -1,2 +1,3 @@
-# php56_apache2
-LAMP stack docker image
+# LAMP dockerfile
+
+Move along. Nothing to see here.
