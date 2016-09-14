@@ -4,7 +4,7 @@ MAINTAINER Jānis Gruzis
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y npm nodejs curl wget xvfb
+RUN apt-get install -y npm nodejs curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm isntall -g npm@latest-2 n
 RUN n 4.*
