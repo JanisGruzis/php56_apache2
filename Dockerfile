@@ -11,7 +11,7 @@ RUN n 4.*
 RUN apt-get install -y apache2
 RUN apt-get install -y build-essential jq acl fpc git unzip
 RUN apt-get install -y php5 php5-curl php5-mcrypt php5-gd php5-mysql php5-dev
-RUN apt-get install -y rsyslog
+RUN apt-get install -y rsyslog 
 RUN rsyslogd
 RUN cron
 
@@ -66,6 +66,16 @@ RUN make
 RUN make install
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/apache2/php.ini"
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/cli/php.ini"
+
+WORKDIR /tmp
+RUN git clone https://github.com/wkhtmltopdf/wkhtmltopdf
+RUN cd /tmp/wkhtmltopdf
+RUN 
+
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ecometrica/servers
+RUN apt-get update
+RUN apt-get install -y wkhtmltopdf
 
 EXPOSE 80
 WORKDIR /var/www/html
