@@ -67,11 +67,6 @@ RUN make install
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/apache2/php.ini"
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/cli/php.ini"
 
-WORKDIR /tmp
-RUN git clone https://github.com/wkhtmltopdf/wkhtmltopdf
-RUN cd /tmp/wkhtmltopdf
-RUN 
-
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:ecometrica/servers
 RUN apt-get update
