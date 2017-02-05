@@ -2,16 +2,25 @@ FROM debian:jessie
 
 MAINTAINER Jānis Gruzis
 
+# Add repositories
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ondrej/php
+RUN add-apt-repository -y ppa:ecometrica/servers
+
+# Update
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y npm nodejs curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
+
+# Node
+RUN apt-get install -y npm nodejs
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm isntall -g npm@latest-2 n
 RUN n 4.*
-RUN apt-get install -y apache2
-RUN apt-get install -y build-essential jq acl fpc git unzip
-RUN apt-get install -y php5 php5-curl php5-mcrypt php5-gd php5-mysql php5-dev
-RUN apt-get install -y rsyslog 
+
+# Install apps
+RUN apt-get install -y curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
+RUN apt-get install -y apache2 build-essential jq acl fpc git unzip rsyslog
+RUN apt-get install -y wkhtmltopdf php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
 RUN rsyslogd
 RUN cron
 
@@ -66,11 +75,6 @@ RUN make
 RUN make install
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/apache2/php.ini"
 RUN bash -c "echo 'extension=redis.so' >> /etc/php5/cli/php.ini"
-
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:ecometrica/servers
-RUN apt-get update
-RUN apt-get install -y wkhtmltopdf
 
 EXPOSE 80
 WORKDIR /var/www/html
