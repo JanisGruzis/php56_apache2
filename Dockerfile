@@ -3,12 +3,14 @@ FROM ubuntu:16.04
 MAINTAINER Jānis Gruzis
 
 # Update
+RUN apt-key update
 RUN apt-get update
 RUN apt-get -y upgrade
 
 # Add repositories
 RUN apt-get install -y software-properties-common curl
 RUN add-apt-repository -y ppa:ondrej/php
+RUN apt-key update
 RUN apt-get update
 
 # Node
