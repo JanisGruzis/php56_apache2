@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install -y software-properties-common curl
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ecometrica/servers
-RUN curl -sL https://deb.nodesource.com/setup_4.x | -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
 #RUN apt-get -y upgrade
 
