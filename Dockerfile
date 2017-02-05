@@ -12,6 +12,7 @@ RUN apt-get -y upgrade
 # Add repositories
 RUN apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ecometrica/servers
+RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 RUN apt-key update
 RUN apt-get update
 
@@ -23,7 +24,7 @@ RUN npm install -g bower
 # Install apps
 RUN apt-get install -y wget xvfb libxss1 libgconf-2-4 libnss3-dev
 RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog wkhtmltopdf
-RUN apt-get install -y php5 php5-curl php5-mcrypt php5-gd php5-mysql php5-dev
+RUN apt-get install -y php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
 RUN rsyslogd
 RUN cron
 
@@ -63,8 +64,8 @@ RUN phpize
 RUN ./configure --prefix=/usr --libdir=/usr/lib
 RUN make
 RUN make install
-RUN bash -c "echo 'extension=sundown.so' >> /etc/php5/apache2/php.ini"
-RUN bash -c "echo 'extension=sundown.so' >> /etc/php5/cli/php.ini"
+RUN bash -c "echo 'extension=sundown.so' >> /etc/php/5.6/apache2/php.ini"
+RUN bash -c "echo 'extension=sundown.so' >> /etc/php/5.6/cli/php.ini"
 
 # PHPRedis
 WORKDIR /tmp
@@ -76,8 +77,8 @@ RUN phpize
 RUN ./configure
 RUN make
 RUN make install
-RUN bash -c "echo 'extension=redis.so' >> /etc/php5/apache2/php.ini"
-RUN bash -c "echo 'extension=redis.so' >> /etc/php5/cli/php.ini"
+RUN bash -c "echo 'extension=redis.so' >> /etc/php/5.6/apache2/php.ini"
+RUN bash -c "echo 'extension=redis.so' >> /etc/php/5.6/cli/php.ini"
 
 EXPOSE 80
 WORKDIR /var/www/html
