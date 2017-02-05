@@ -1,15 +1,17 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 MAINTAINER Jānis Gruzis
 
 # Update
+RUN locale-gen en_US.UTF-8
+RUN export LANG=en_US.UTF-8
 RUN apt-key update
 RUN apt-get update
 RUN apt-get -y upgrade
 
 # Add repositories
 RUN apt-get install -y software-properties-common curl
-RUN add-apt-repository -y ppa:ondrej/php
+RUN add-apt-repository ppa:ecometrica/servers
 RUN apt-key update
 RUN apt-get update
 
@@ -20,8 +22,8 @@ RUN npm install -g bower
 
 # Install apps
 RUN apt-get install -y wget xvfb libxss1 libgconf-2-4 libnss3-dev
-RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog
-RUN apt-get install -y wkhtmltopdf php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
+RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog wkhtmltopdf
+RUN apt-get install -y php5 php5-curl php5-mcrypt php5-gd php5-mysql php5-dev
 RUN rsyslogd
 RUN cron
 
