@@ -2,14 +2,16 @@ FROM debian:jessie
 
 MAINTAINER Jānis Gruzis
 
+
+# Update
+RUN apt-get update
+
 # Add repositories
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ecometrica/servers
-
-# Update
 RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get -y upgrade
 
 # Node
 RUN apt-get install -y npm nodejs
