@@ -1,12 +1,9 @@
-FROM ubuntu:14.04
+FROM debian:jessie
 
 MAINTAINER Jānis Gruzis
 
 # Update
-RUN apt-get remove debian-keyring debian-archive-keyring
-RUN apt-get clean
 RUN apt-get update
-RUN apt-get -y install debian-keyring debian-archive-keyring
 
 # Add repositories
 RUN apt-get install -y software-properties-common
