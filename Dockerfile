@@ -10,11 +10,14 @@ RUN apt-get -y upgrade
 RUN apt-get install -y software-properties-common curl
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ecometrica/servers
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+#RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
 
 # Node
-RUN apt-get install -y build-essential nodejs
+RUN apt-get install -y build-essential nodejs npm
+RUN npm install -g npm@latest-2
+RUN npm install -g n
+RUN n 4.*
 
 # Install apps
 RUN apt-get install -y curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
