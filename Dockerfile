@@ -14,7 +14,7 @@ RUN apt-get update
 #RUN apt-get -y upgrade
 
 # Node
-RUN apt-get install -y build-essential nodejs
+RUN apt-get install -y build-essential nodejs npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm isntall -g npm@latest-2 n
 RUN n 4.*
