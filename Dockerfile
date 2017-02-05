@@ -14,14 +14,14 @@ RUN apt-get update
 #RUN apt-get -y upgrade
 
 # Node
-RUN apt-get install -y npm nodejs
+RUN apt-get install -y build-essential nodejs
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm isntall -g npm@latest-2 n
 RUN n 4.*
 
 # Install apps
 RUN apt-get install -y curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
-RUN apt-get install -y apache2 build-essential jq acl fpc git unzip rsyslog
+RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog
 RUN apt-get install -y wkhtmltopdf php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
 RUN rsyslogd
 RUN cron
