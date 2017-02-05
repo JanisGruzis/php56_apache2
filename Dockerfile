@@ -1,9 +1,10 @@
-FROM debian:jessie
+FROM ubuntu:16.04
 
 MAINTAINER Jānis Gruzis
 
 # Update
 RUN apt-get update
+RUN apt-get -y upgrade
 
 # Add repositories
 RUN apt-get install -y software-properties-common curl
@@ -11,7 +12,6 @@ RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ecometrica/servers
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
-#RUN apt-get -y upgrade
 
 # Node
 RUN apt-get install -y build-essential nodejs
