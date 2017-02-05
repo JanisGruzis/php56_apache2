@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:latest
 
 MAINTAINER Jānis Gruzis
 
