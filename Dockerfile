@@ -9,14 +9,11 @@ RUN apt-get -y upgrade
 # Add repositories
 RUN apt-get install -y software-properties-common curl
 RUN add-apt-repository -y ppa:ondrej/php
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
 
 # Node
-#RUN apt-get install -y build-essential nodejs npm
-#RUN npm install -g npm@latest-2
-#RUN npm install -g n
-#RUN n 4.*
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -y build-essential nodejs npm
 
 # Install apps
 RUN apt-get install -y curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
