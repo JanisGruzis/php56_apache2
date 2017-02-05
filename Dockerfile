@@ -13,10 +13,11 @@ RUN apt-get update
 
 # Node
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get install -y build-essential nodejs npm
+RUN apt-get install -y build-essential nodejs
+RUN npm install -g bower
 
 # Install apps
-RUN apt-get install -y curl wget xvfb libxss1 libgconf-2-4 libnss3-dev
+RUN apt-get install -y wget xvfb libxss1 libgconf-2-4 libnss3-dev
 RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog
 RUN apt-get install -y wkhtmltopdf php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
 RUN rsyslogd
