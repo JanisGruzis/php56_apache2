@@ -24,7 +24,7 @@ RUN npm install -g bower
 # Install apps
 RUN apt-get install -y wget xvfb libxss1 libgconf-2-4 libnss3-dev
 RUN apt-get install -y apache2 jq acl fpc git unzip rsyslog wkhtmltopdf
-RUN apt-get install -y php5.6 php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
+RUN apt-get install -y php5.6 php5.6-xml php5.6-curl php5.6-mcrypt php5.6-gd php5.6-mysql php5.6-dev
 RUN rsyslogd
 RUN cron
 
